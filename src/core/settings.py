@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'u2n1e7&uh%2i3h@oh2+#s77vk%x+&gz&d1nq-g1)+m+(-7^x&9'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['urlshortener.com', 'www.urlshortener.com', 'api.urlshortener.com', 'www.api.urlshortener.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -18,11 +18,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third Party Apps
+    'django_hosts',
+
     # Custom Apps
     'shortener.apps.ShortenerConfig'
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -30,9 +34,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
+ROOT_HOSTCONF = 'core.hosts'
+DEFAULT_HOST = 'www'
 
 TEMPLATES = [
     {
