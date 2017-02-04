@@ -1,8 +1,15 @@
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import View
 
 from .models import UrlShortener
+
+
+class HomeView(View):
+    """Home page view."""
+    @staticmethod
+    def get(request, *args, **kwargs):
+        return render(request, 'shortener/home.html', {})
 
 
 class UrlShortenerRedirectView(View):
