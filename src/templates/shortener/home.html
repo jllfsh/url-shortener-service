@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>URL Shortener</title>
 </head>
 <body>
-<h1>SHORTENER</h1>
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+    <h2>{{ short_url }}</h2>
+</form>
+
 </body>
 </html>

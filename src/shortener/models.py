@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from .managers import UrlShortenerManager
 from .utils import make_short_url
@@ -12,7 +13,7 @@ class UrlShortener(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     short_url = models.CharField(max_length=15, unique=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
-    url = models.CharField(max_length=255)
+    url = models.URLField()
 
     objects = UrlShortenerManager()
 
@@ -23,3 +24,6 @@ class UrlShortener(models.Model):
         if not self.short_url:
             self.short_url = make_short_url(self)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('redirect', kwargs={'short_url': self.short_url})
