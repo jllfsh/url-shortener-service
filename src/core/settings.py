@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django_hosts',
 
     # Custom Apps
+    'analytics.apps.AnalyticsConfig',
     'shortener.apps.ShortenerConfig'
 ]
 
