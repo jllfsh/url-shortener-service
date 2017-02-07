@@ -8,3 +8,14 @@ class CreateURLFrom(forms.ModelForm):
     class Meta:
         model = UrlShortener
         fields = ('url',)
+        labels = {
+            'url': ''
+        }
+        widgets = {
+            'url': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Your URL',
+                }
+            )
+        }

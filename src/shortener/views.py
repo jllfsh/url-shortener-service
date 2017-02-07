@@ -2,15 +2,15 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, DetailView, RedirectView
 
+from .forms import CreateURLFrom
 from .models import UrlShortener
 from analytics.models import ClickEvent
 
 
 class HomeView(CreateView):
     """Home page view."""
+    form_class = CreateURLFrom
     template_name = 'shortener/home.html'
-    model = UrlShortener
-    fields = ('url',)
 
     def get_success_url(self):
         return reverse('detail', kwargs={'short_url': self.object.short_url})
