@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, DetailView, RedirectView
@@ -11,6 +12,10 @@ class HomeView(CreateView):
     """Home page view."""
     form_class = CreateURLFrom
     template_name = 'shortener/home.html'
+
+    def form_valid(self, form):
+        self.object, created = UrlShortener.objects.get_or_create(url=form.cleaned_data.get('url', ''))
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse('detail', kwargs={'short_url': self.object.short_url})
