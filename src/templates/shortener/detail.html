@@ -2,9 +2,7 @@
 
 {% block content %}
 <h1 class="cover-heading">Link created</h1>
-<p class="lead">
-    <p>Short link: <a href="{{ url_object.get_absolute_url }}" class="btn btn-primary btn-link">{{ absolute_short_url }}</a></p>
-    <p>Count: {{ url_object.click_event.count|default:0 }}</p>
-    <a href="{% url 'home' %}" class="btn btn-default">New URL</a>
-</p>
+<p class="lead">Short link: <a href="{{ url_object.get_absolute_url }}" class="btn btn-link">{{ absolute_short_url }}</a></p>
+<p>Count: {{ url_object.click_event.count|default:0 }}</p>
+<a href="{% url 'home' %}" class="btn btn-default">New URL</a>
 {% endblock content %}

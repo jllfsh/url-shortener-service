@@ -2,12 +2,11 @@
 
 {% block content %}
 <h1 class="cover-heading">URL Shortener</h1>
-<p class="lead">
+<p class="lead">Shorten that URL</p>
     <div class="col-sm-6 col-sm-offset-3">
         <form action="" method="post">{% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" class="btn btn-primary">
+            <input type="submit" class="btn btn-primary" value="Shorten &raquo;">
         </form>
     </div>
-</p>
 {% endblock content %}
