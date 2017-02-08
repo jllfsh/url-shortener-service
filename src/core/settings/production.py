@@ -6,7 +6,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'u2n1e7&uh%2i3h@oh2+#s77vk%x+&gz&d1nq-g1)+m+(-7^x&9'
 DEBUG = False
-ALLOWED_HOSTS = ['urlshortener.com', 'www.urlshortener.com', 'api.urlshortener.com', 'www.api.urlshortener.com']
+ALLOWED_HOSTS = [
+    'url-shortener-cloud-service.herokuapp.com'
+    'www.url-shortener-cloud-service.herokuapp.com'
+    'api.url-shortener-cloud-service.herokuapp.com'
+    'www.api.url-shortener-cloud-service.herokuapp.com'
+]
 
 # Application definition
 INSTALLED_APPS = [
