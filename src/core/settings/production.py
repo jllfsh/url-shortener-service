@@ -1,11 +1,11 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'u2n1e7&uh%2i3h@oh2+#s77vk%x+&gz&d1nq-g1)+m+(-7^x&9'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['urlshortener.com', 'www.urlshortener.com', 'api.urlshortener.com', 'www.api.urlshortener.com']
 
 # Application definition
